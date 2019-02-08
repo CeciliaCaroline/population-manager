@@ -54,7 +54,6 @@ router.get("/locations", (req, res) => {
       }
       const response = {
         locations: locations.map(location => {
-            console.log(location)
           return {
             name: location.name,
             females: location.females,
@@ -171,9 +170,9 @@ router.delete("/locations/:locationId", (req, res) => {
 
 // POST sub location
 router.post("/locations/:locationId/subs", (req, res) => {
-    if (!req.body.name) {
+    if (!req.body.name || !req.body.females || !req.body.males) {
     return res.status(400).send({
-      message: " Location name can not be empty"
+      message: " Location name/females/males field can not be empty"
     });
   }
   let location = new Location(req.body);

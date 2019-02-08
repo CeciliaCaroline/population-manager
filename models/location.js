@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 
 const LocationSchema = new Schema({
   name: { type: String, unique: true, required: true },
-  females: { type: Number, default: 0 },
-  males: { type: Number, default: 0 },
+  females: { type: Number, default: 0, required: true  },
+  males: { type: Number, default: 0, required: true  },
   total: { type: Number, default: 0 },
   subLocations: []
 });

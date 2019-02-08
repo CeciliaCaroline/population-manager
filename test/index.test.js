@@ -39,7 +39,6 @@ describe("GET /locations/:locationId", function() {
       males: "15"
     });
     location.save(err => {
-      // console.log(location._id)
       request(app)
         .get(`/api/v1/locations/${location._id}`)
         .set("Accept", "application/json")
