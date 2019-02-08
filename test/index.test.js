@@ -44,6 +44,7 @@ describe('GET /locations/:locationId', function () {
         "males": "15"
     })
     location.save(err => {
+        // console.log(location._id)
       request(app)
       .get(`/api/v1/locations/${location._id}`)
       .set('Accept', 'application/json')
@@ -108,7 +109,7 @@ describe('POST /v1/locations', function() {
 });
 
 describe('UPDATE /v1/locations/:locationId', function () {
-  it('respond with updates location', function (done) {
+  it('respond with updated location', function (done) {
     let location = new Location({
         "name": "location-6",
         "total": "20",
@@ -144,6 +145,7 @@ describe('DELETE /v1/locations/:locationId', function () {
     })
   })
 
+
     it('unsuccessful delete', function (done) {
       request(app)
       .delete(`/api/v1/locations/t`)
@@ -152,4 +154,31 @@ describe('DELETE /v1/locations/:locationId', function () {
       .expect(404, done);
     })
   })
+
+describe('POST /v1/locations/:locationId', function() {
+
+    it('should respond with 201 created', function(done) {
+        let location = new Location({
+            "name": "location-5",
+            "total": "20",
+            "females": "5",
+            "males": "15"
+        })
+        location.save(err => {
+      request(app)
+        .post(`/api/v1/locations/${location._id}/subs`)
+        .send(location1)
+        .set('Content-Type', 'application/json')
+        .expect('Content-Type', /json/)
+        .expect(201)
+        .end( function(err, res) {
+          if (err) { return done(err); }
+          // Done
+          done();
+        });
+    });
+})
+  
+  
+  });
   

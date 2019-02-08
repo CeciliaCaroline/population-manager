@@ -181,7 +181,6 @@ router.post("/locations/:locationId/subs", (req, res) => {
       Location.findById(req.params.locationId)
         // .exec()
         .then(sublocation => {
-          console.log(sublocation, 'subbbbbb')
           if (!sublocation) {
             return res.status(404).send({
               message: `Location with id  ${req.params.locationId} not found`
