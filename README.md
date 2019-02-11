@@ -43,6 +43,6 @@ GET /api/v1/locations |Create all locations
 GET /api/v1/locations/:locationId | Get a specific location
 UPDATE /api/v1/locations/:locationId | Update location name
 DELETE /api/v1/locations/:locationId  | Delete location
-POST /api/v1/locations/:locationId/subs  | Create sub location 
+POST /api/v1/locations/:locationId/sublocations  | Create sub location 
 
 More detailed documentation of the API can be found [here](https://documenter.getpostman.com/view/2437198/RztpqTXu)

@@ -12,7 +12,7 @@ module.exports.handle404Errors = () => {
 // Error Handler
 module.exports.handleErrors = () => {
   return ((err, req, res, next) => {
-    res.status(err.status || 500);
+    res.status( 500 || err.status);
     res.json({
       error: {
         message: err.message

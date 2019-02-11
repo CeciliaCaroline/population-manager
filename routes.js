@@ -115,7 +115,7 @@ router.put("/locations/:locationId", (req, res) => {
     // Validate Request
   if (!req.body.name) {
     return res.status(400).send({
-      message: "Location content can not be empty"
+      message: "Location name can not be empty"
     });
   }
 
@@ -123,7 +123,8 @@ router.put("/locations/:locationId", (req, res) => {
   Location.findByIdAndUpdate(
     req.params.locationId,
     {
-      name: req.body.name 
+      name: req.body.name
+
     },
     { new: true }
   )
